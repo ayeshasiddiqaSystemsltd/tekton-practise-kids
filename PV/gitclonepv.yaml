@@ -6,6 +6,7 @@ metadata:
   labels:
     app: nodejs-pipeline
 spec:
+  persistentVolumeReclaimPolicy: Recycle
   capacity:
     storage: 1Gi
   accessModes:
