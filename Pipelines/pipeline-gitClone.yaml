@@ -9,17 +9,19 @@ spec:
   params:
   - name: git-repo-name
     default: arslaanmalik/nodejs-boilerplate
+  - name: release
+    default: "main"   
   - name: pathToContext
     default: .
   workspaces:
-    - name: pipeline-ws
+    - name: pipeline-ws-test
   tasks:
   - name: task-git-clone
     taskRef:
       name: git-clone
     workspaces:
     - name: source
-      workspace: pipeline-ws
+      workspace: pipeline-ws-test
     params:
     - name: url
       value: https://github.com/$(params.git-repo-name).git
