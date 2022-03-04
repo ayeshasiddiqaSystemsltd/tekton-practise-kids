@@ -12,6 +12,6 @@ spec:
       spec:
         resources:
           requests:
-            storage: 512Mi
+            storage: 1Gi
         accessModes:
           - ReadWriteMany

@@ -20,7 +20,7 @@ spec:
     taskRef:
       name: git-clone
     workspaces:
-    - name: source
+    - name: output
       workspace: pipeline-ws-test
     params:
     - name: url
