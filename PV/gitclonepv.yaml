@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tekton-git-pv
+  namespace: tekton-builds
+  labels:
+    app: nodejs-pipeline
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/home/systemsltd/tekton-learning"

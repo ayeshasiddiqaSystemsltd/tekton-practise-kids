@@ -1,0 +1,27 @@
+---
+
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: nodejs-pipeline
+  namespace: tekton-builds
+spec:
+  params:
+  - name: git-repo-name
+    default: arslaanmalik/nodejs-boilerplate
+  - name: pathToContext
+    default: .
+  workspaces:
+    - name: pipeline-ws
+  tasks:
+  - name: task-git-clone
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: source
+      workspace: pipeline-ws
+    params:
+    - name: url
+      value: https://github.com/$(params.git-repo-name).git
+
+---

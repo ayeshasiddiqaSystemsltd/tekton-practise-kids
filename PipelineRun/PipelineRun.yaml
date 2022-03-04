@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: git-repo-clone
+  namespace: tekton-builds
+spec:
+  pipelineRef:
+    name: nodejs-pipeline
+  workspaces:
+  - name: pipeline-ws-test
+    volumeClaimTemplate:
+      spec:
+        resources:
+          requests:
+            storage: 512Mi
+        accessModes:
+          - ReadWriteMany
