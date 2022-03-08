@@ -4,7 +4,7 @@ apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
   name: nodejs-pipeline
-  namespace: tekton-builds
+  namespace: tekton-kids
 spec:
   params:
   - name: git-repo-name

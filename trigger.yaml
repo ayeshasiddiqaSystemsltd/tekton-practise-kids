@@ -1,0 +1,8 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: Trigger
+metadata:
+  name: github-listener
+  namespace: tekton-kids
+spec:
+  template:
+    ref: trigger-demo-template

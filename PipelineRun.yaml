@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   generateName: git-repo-clone
-  namespace: tekton-builds
+  namespace: tekton-kids
 spec:
   pipelineRef:
     name: nodejs-pipeline

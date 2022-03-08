@@ -1,0 +1,27 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: trigger-demo-template
+  namespace: tekton-kids
+  annotations:
+    triggers.tekton.dev/old-escape-quotes: "true"
+spec:
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: git-repo-clone
+        namespace: tekton-kids
+      spec:
+        pipelineRef:
+          name: nodejs-pipeline
+        workspaces:
+        - name: pipeline-ws-test
+          volumeClaimTemplate:
+            spec:
+              resources:
+                requests:
+                  storage: 1Gi
+              accessModes:
+                - ReadWriteMany
+
